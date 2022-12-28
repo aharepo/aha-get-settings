@@ -3,7 +3,7 @@ import signJWT from './utils/signJWT';
 import { INTERNAL_SERVICES } from './utils/constants';
 import get from './utils/get';
 
-exports.getSensitiveSettings = async function({ jwtSecret, service }) {
+const getSensitiveSettings = async function({ jwtSecret, service }) {
   const GRAPH_API = axios.create({
     baseURL: process.env.AHA_GRAPH_BASE_URL || 'https://graph.aha.is',
   });
@@ -35,9 +35,14 @@ exports.getSensitiveSettings = async function({ jwtSecret, service }) {
   );
 };
 
-exports.INTERNAL_SERVICES = Object.keys(INTERNAL_SERVICES).reduce((result, service) => {
+const INTERNAL_SERVICES = Object.keys(INTERNAL_SERVICES).reduce((result, service) => {
   return result = {
     ...result,
     [service]: service
   }
 }, {});
+
+module.exports = {
+  getSensitiveSettings: getSensitiveSettings,
+  INTERNAL_SERVICES: INTERNAL_SERVICES,
+};
