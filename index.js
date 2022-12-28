@@ -35,7 +35,7 @@ const getSensitiveSettings = async function({ jwtSecret, service }) {
   );
 };
 
-const INTERNAL_SERVICES = Object.keys(INTERNAL_SERVICES).reduce((result, service) => {
+const SERVICES = Object.keys(INTERNAL_SERVICES).reduce((result, service) => {
   return result = {
     ...result,
     [service]: service
@@ -44,5 +44,5 @@ const INTERNAL_SERVICES = Object.keys(INTERNAL_SERVICES).reduce((result, service
 
 module.exports = {
   getSensitiveSettings: getSensitiveSettings,
-  INTERNAL_SERVICES: INTERNAL_SERVICES,
+  SERVICES: SERVICES,
 };
