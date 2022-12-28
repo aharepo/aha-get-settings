@@ -42,4 +42,8 @@ const SERVICES = Object.keys(INTERNAL_SERVICES).reduce((result, service) => {
   }
 }, {});
 
-export { getSensitiveSettings, SERVICES };
+module.exports = {
+  getSensitiveSettings,
+  SERVICES
+};
+module.exports.default = module.exports;
