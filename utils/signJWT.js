@@ -3,7 +3,7 @@ import { INTERNAL_SERVICES } from './constants';
 
 const signJWT = ({jwtSecret, service}) => {
   const jwtParams = {
-    service: INTERNAL_SERVICES[service]
+    service: INTERNAL_SERVICES[service].name
   };
 
   const jwtToken = jwt.sign(jwtParams, jwtSecret);

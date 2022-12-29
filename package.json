@@ -1,12 +1,19 @@
 {
   "name": "get-aha-sensitive-settings",
   "version": "1.0.0",
-  "description": "Pakage for getting the aha  sensitve settings",
+  "description": "Package for getting the aha sensitive settings",
   "main": "index.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aharepo/get-aha-sensitive-settings.git"
+  },
+  "keywords": [
+    "sensitve"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -18,5 +25,9 @@
   },
   "devDependencies": {
     "eslint": "^8.30.0"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/aharepo/get-aha-sensitive-settings/issues"
+  },
+  "homepage": "https://github.com/aharepo/get-aha-sensitive-settings#readme"
 }

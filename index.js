@@ -1,11 +1,11 @@
 import axios from 'axios';
-import signJWT from './utils/signJWT';
-import { INTERNAL_SERVICES } from './utils/constants';
-import get from './utils/get';
+import signJWT from './utils/signJWT.js';
+import { INTERNAL_SERVICES } from './utils/constants.js';
+import get from './utils/get.js';
 
-const getSensitiveSettings = async function({ jwtSecret, service }) {
+const getSensitiveSettings = async function({ graphUrl, jwtSecret, service }) {
   const GRAPH_API = axios.create({
-    baseURL: process.env.AHA_GRAPH_BASE_URL || 'https://graph.aha.is',
+    baseURL: graphUrl,
   });
 
   GRAPH_API.defaults.headers.post['Content-Type'] = 'application/json';
@@ -21,7 +21,7 @@ const getSensitiveSettings = async function({ jwtSecret, service }) {
         get_sensitive_frontend_settings(filters: $filters) {
           settings {
             id
-            value
+            decrypt_value
           }
         }
       }
@@ -31,7 +31,7 @@ const getSensitiveSettings = async function({ jwtSecret, service }) {
   return get(
     result,
     'data.data.get_sensitive_frontend_settings.settings',
-    '',
+    [],
   );
 };
 
