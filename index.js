@@ -3,7 +3,7 @@ import signJWT from './utils/signJWT.js';
 import { INTERNAL_SERVICES } from './utils/constants.js';
 import get from './utils/get.js';
 
-const getSensitiveSettings = async function({ graphUrl, jwtSecret, service }) {
+export default async function getSensitiveSettings({ graphUrl, jwtSecret, service }) {
   const GRAPH_API = axios.create({
     baseURL: graphUrl,
   });
@@ -33,16 +33,4 @@ const getSensitiveSettings = async function({ graphUrl, jwtSecret, service }) {
     'data.data.get_sensitive_frontend_settings.settings',
     [],
   );
-};
-
-const SERVICES = Object.keys(INTERNAL_SERVICES).reduce((result, service) => {
-  return result = {
-    ...result,
-    [service]: service
-  }
-}, {});
-
-export {
-  getSensitiveSettings,
-  SERVICES
 };
