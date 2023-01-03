@@ -4,9 +4,12 @@ Package for internal services are able to get sensitive settings
 
 # Install
 
-Add below code to devDependencies on package.json to install this package
 ```bash
-"get-aha-sensitive-settings": "https://github.com/aharepo/get-aha-sensitive-settings"
+npm i get-aha-sensitive-settings
+```
+or 
+```bash
+yarn add get-aha-sensitive-settings
 ```
 
 # Usage
