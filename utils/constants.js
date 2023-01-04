@@ -5,4 +5,4 @@ export const INTERNAL_SERVICES = {
   },
 };
 
-export const ACCESS_TOKEN_EXPIRED_TIME = 30000;
+export const ACCESS_TOKEN_EXPIRED_TIME = "30s"; // seconds
