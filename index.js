@@ -8,16 +8,28 @@ export const getSensitiveSettings = async ({ settingServerUrl, service }) => {
   });
 
   API.defaults.headers.post['Content-Type'] = 'application/json';
-
-  const result = await API.post('/frontend-settings/sensitive', {
-      ids: INTERNAL_SERVICES[service].allowedSettings,
-      service: INTERNAL_SERVICES[service].name
-    }
-  );
+  const result = await API.post('/graphql', {
+    variables: {
+      filters: {
+        ids: INTERNAL_SERVICES[service].allowedSettings,
+        service: "AHA_SEARCH"
+      },
+    },
+    query: `
+      query Get_sensitive_frontend_settings($filters: GetSensitiveFrontendSettingsInput) {
+        get_sensitive_frontend_settings(filters: $filters) {
+          settings {
+            id
+            value
+          }
+        }
+      }
+    `,
+  });
 
   return get(
     result,
-    'data',
+    'data.data.get_sensitive_frontend_settings.settings',
     [],
   );
 };
