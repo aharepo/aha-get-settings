@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/aharepo/aha-get-settings.git"
+    "url": "https://github.com/aharepo/aha-get-settings.git"
   },
   "keywords": [
     "sensitve"
