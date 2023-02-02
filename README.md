@@ -1,26 +1,21 @@
-# get-aha-sensitive-settings
+# aha-get-settings
 
 Package for internal services are able to get sensitive settings
 
 # Install
-
+add below line to package.json
 ```bash
-npm i get-aha-sensitive-settings
-```
-or 
-```bash
-yarn add get-aha-sensitive-settings
+  "aha-get-settings": "https://github.com/aharepo/aha-get-settings.git#v1.0.1",
 ```
 
 # Usage
 
 ```javascript
-import { getSensitiveSettings, SERVICES } from 'get-aha-sensitive-settings';
+import { getSensitiveSettings, SERVICES } from 'aha-get-settings';
 
 const sensitiveSettings = await getSensitiveSettings({
-  graphUrl: ${AHA_GRAPH_BASE_URL},
-  jwtSecret: ${JWT_SECRET},
-  service: ${SERVICES_NAME},
+  settingServerUrl: ${AHA_SETTING_SERVER_URL},
+  service: SERVICES[${SERVICES_NAME}],
 });
 ```
 
@@ -28,8 +23,7 @@ const sensitiveSettings = await getSensitiveSettings({
 
 | Property               | Type     | Required? | Description                                                                         |
 | :--------------------- | :------- | :-------- | :---------------------------------------------------------------------------------- |
-| graphUrl               | string   | yes       | graph server URL                                                                    |
-| jwtSecret              | string   | yes       | secret key to sign JWT token                                                        |
+| settingServerUrl       | string   | yes       | setting server URL                                                                    |
 | service                | string   | yes       | service name, e.g: SERVICES.AHA_SEARCH                                                     |
 
 ## sensitiveFrontendSettingResponse
@@ -37,6 +31,6 @@ const sensitiveSettings = await getSensitiveSettings({
 | Property        | Type    | Description                                                                                                            |
 | :---------      | :------ | :--------------------------------------------------------------------------------------------------------------------- |
 | id              | string  | frontend setting id                                                                                  |
-| decrypt_value   | string  | frontend setting value after decrypting                                                                                       |                                                  |
+| value           | string  | frontend setting value after decrypting                                                                                       |                                                  |
 
 
